@@ -19,14 +19,14 @@ source images). License: CC BY 4.0 (see `LICENSE.txt`).
 
 ## Schema (per row)
 
-| column | type | meaning |
-|---|---|---|
-| `image_id` | int64 | unique id (namespaced by source split) |
-| `file_name` | string | original file name |
-| `width`, `height` | int32 | image dimensions (px) |
-| `image_bytes` | binary | the JPEG file, byte-identical to the Roboflow export -- no re-encode/resize/crop applied by this repo |
-| `category_id` | list<int64> | one entry per annotation instance |
-| `bbox_xywh` | list<list<float>> | COCO-native `[x, y, w, h]`, absolute pixels, one per instance |
+| column            | type              | meaning                                                                                               |
+| ----------------- | ----------------- | ----------------------------------------------------------------------------------------------------- |
+| `image_id`        | int64             | unique id (namespaced by source split)                                                                |
+| `file_name`       | string            | original file name                                                                                    |
+| `width`, `height` | int32             | image dimensions (px)                                                                                 |
+| `image_bytes`     | binary            | the JPEG file, byte-identical to the Roboflow export -- no re-encode/resize/crop applied by this repo |
+| `category_id`     | list<int64>       | one entry per annotation instance                                                                     |
+| `bbox_xywh`       | list<list<float>> | COCO-native `[x, y, w, h]`, absolute pixels, one per instance                                         |
 
 Images are already square-letterboxed to 432x432 by Roboflow's own
 preprocessing (auto-orient + "Fit (black edges) in" resize) -- that
